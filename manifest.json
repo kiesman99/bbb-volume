@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "author": "Justin Vietz",
+
+  "name": "BBB Volume Slider",
+  "description": "This Extension will add a volume Slider in Big-Blue-Button",
+  "version": "1.0",
+
+  "content_scripts": [
+    {
+        "run_at" : "document_idle",
+        "matches": ["https://bbb-8.elearning.uni-bremen.de/*"],
+        "js": ["b.js"]
+    }
+  ], 
+  "browser_action": {
+   "default_title": "Add Volume Slider"
+  },
+  "permissions": [
+   "activeTab"
+   ]
+}
