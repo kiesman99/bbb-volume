@@ -19,3 +19,14 @@ If you find a bug please submit an Issue.
 ## Where is the Slider?
 
 The slider will be in the top left corner of BBB.
+
+## I don't want an Extension / I don't use chrome
+
+You can simply paste [this script](https://raw.githubusercontent.com/kiesman99/bbb-volume/master/paste.js) into your browser's console.
+
+### Firefox and Chrome
+
+- Right-Click on the page
+- Click on *Inspect*
+- Go to *Console*
+- Paste [Script](https://raw.githubusercontent.com/kiesman99/bbb-volume/master/paste.js) and Press enter.
