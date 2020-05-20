@@ -4,13 +4,15 @@ This Project contains a simple chrome extension, which enables a Volume Slider i
 
 ## Installation
 
-- Head over to the [releases Tab](https://github.com/kiesman99/bbb-volume/releases)
-- Download the latest build
+- Download this Repo
 - Open Chrome
 - Go to the top right three dot menu
     - More Tools
     - Extensions
-- Here you can just drop the downloaded .crx File
+- Click on *Load Unpacked*
+- Navigate to the downloaded folder
+    - If you downloaded a .zip you have to **unpack** it
+- Select the downloaded repo-folder
 
 ## Bugs
 
