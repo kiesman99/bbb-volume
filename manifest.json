@@ -9,7 +9,7 @@
   "content_scripts": [
     {
         "run_at" : "document_idle",
-        "matches": ["https://bbb-8.elearning.uni-bremen.de/*"],
+        "matches": ["https://*/*"],
         "js": ["b.js"]
     }
   ], 
