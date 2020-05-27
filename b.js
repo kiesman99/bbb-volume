@@ -1,10 +1,13 @@
-function volumeWrapper(info, slider) {
+var lastVolume = document.getElementsByTagName("audio")[0].volume;
+
+function volumeWrapper(info, slider, muteButton) {
     var div = document.createElement("div");
     div.classList.add("cvolume-wrapper");
 
     // add info and slider into wrapper
     div.appendChild(info);
     div.appendChild(slider);
+    div.appendChild(muteButton);
     
     return div;
 }
@@ -25,6 +28,7 @@ function volumeSlider(info) {
     // trigger function
     input.oninput = function() {
         info.innerText = "Lautstärke: " + input.value + "%";
+        lastVolume = input.value;
         document.getElementsByTagName("audio")[0].volume = input.value/100;
     }
 
@@ -47,12 +51,33 @@ function volumeInfo() {
     return info;
 }
 
+function muteButton(slider, infoText) {
+    var button = document.createElement("button");
+    button.innerText = "Mute";
+    
+    button.onclick = function() {
+       if (slider.value > 0) {
+            lastVolume = slider.value / 100;
+            document.getElementsByTagName("audio")[0].volume = 0.0;
+            slider.value = 0.0;
+            infoText.innerText = "Lautstärke: " + slider.value + "%";
+       } else {
+            slider.value = lastVolume * 100; 
+            document.getElementsByTagName("audio")[0].volume = lastVolume;
+            infoText.innerText = "Lautstärke: " + slider.value + "%";
+       } 
+    }
+
+    return button;
+}
+
 function inject() {
     new Promise((resolve) => setTimeout(resolve, 3 * 1000)).then(() => {
         console.log("Trying to inject...");
         var infoText = volumeInfo();
         var slider = volumeSlider(infoText);
-        var div = volumeWrapper(infoText, slider);
+        var mButton = muteButton(slider, infoText);
+        var div = volumeWrapper(infoText, slider, mButton);
         document.getElementsByClassName("content--2pnTsl")[0].prepend(div); 
         console.log("DONE INJECTING AUDIO CONTROLS");
     });
