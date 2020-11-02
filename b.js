@@ -61,10 +61,12 @@ function muteButton(slider, infoText) {
             document.getElementsByTagName("audio")[0].volume = 0.0;
             slider.value = 0.0;
             infoText.innerText = "Lautstärke: " + slider.value + "%";
+            button.innerText = "Unmute";
        } else {
             slider.value = lastVolume * 100; 
             document.getElementsByTagName("audio")[0].volume = lastVolume;
             infoText.innerText = "Lautstärke: " + slider.value + "%";
+            button.innerText = "Mute";
        } 
     }
 
